@@ -45,7 +45,9 @@ public class CommandRecognizer implements IProcessor {
         String[] commandStrings = input.split("\n");
 
         for (String commandString : commandStrings) {
-            parse(commandString);
+            if (!parse(commandString)) {
+                return;
+            }
         }
     }
 
@@ -56,29 +58,31 @@ public class CommandRecognizer implements IProcessor {
      * 3. place command is a little more special, because of the format of it is a little more complex.
      * if recognized failed, the error message will be not empty.
      */
-    private void parse(String commandString) {
+    private boolean parse(String commandString) {
         String[] commandSplits = commandString.split(" ");
         switch (commandSplits[0]) {
             case Command.COMMAND_MOVE:
                 commands.add(new Move(robot, table));
-                break;
+                return true;
             case Command.COMMAND_LEFT:
                 commands.add(new Left(robot));
-                break;
+                return true;
             case Command.COMMAND_RIGHT:
                 commands.add(new Right(robot));
-                break;
+                return true;
             case Command.COMMAND_REPORT:
                 commands.add(new Report(robot));
-                break;
+                return true;
             case Command.COMMAND_PLACE:
                 if (commandSplits.length != 2) {
                     errmsg = Command.COMMAND_PLACE + " format wrong";
+                    return false;
                 }
 
                 String[] tempSplits = commandSplits[1].split(",");
                 if (tempSplits.length != 3) {
                     errmsg = Command.COMMAND_PLACE + " format wrong";
+                    return false;
                 }
 
                 try {
@@ -89,11 +93,12 @@ public class CommandRecognizer implements IProcessor {
                     commands.add(new Place(targetPoint, targetDirection, robot, table));
                 } catch (Exception e) {
                     errmsg = Command.COMMAND_PLACE + " format wrong" + '\n' + e;
+                    return false;
                 }
-                break;
+                return true;
             default:
                 errmsg = commandSplits[0] + " is not a valid command";
-                break;
+                return false;
         }
     }
 }

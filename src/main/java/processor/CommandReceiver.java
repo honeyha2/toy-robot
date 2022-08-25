@@ -45,7 +45,7 @@ public class CommandReceiver implements IProcessor {
                 e.printStackTrace();
             }
 
-            if (StringUtils.equals(consoleInput, "EXIT")) {
+            if (StringUtils.equals(consoleInput, "")) {
                 isRunning = false;
                 break;
             } else {

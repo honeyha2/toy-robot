@@ -17,11 +17,6 @@ public class Left implements ICommand {
     }
 
     @Override
-    public boolean checkFormat() {
-        return true;
-    }
-
-    @Override
     public boolean isOnTableIfExecuted() {
         return true;
     }

@@ -45,6 +45,9 @@ public class Runner {
 
         CommandExecutor commandExecutor = new CommandExecutor(commandChecker.getCommands());
         commandExecutor.process();
+        if (!commandExecutor.getIgnoredCommands().isEmpty()) {
+            System.out.println("ignored commands: " + commandExecutor.getIgnoredCommands());
+        }
     }
 
     /**

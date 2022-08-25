@@ -37,10 +37,8 @@ public class CommandChecker implements IProcessor {
             return;
         }
 
-        boolean checkFormat = commands.stream().allMatch(ICommand::checkFormat);
-        if (!checkFormat) {
-            errmsg = "command format checks failed";
-            return;
-        }
+        /**
+         * if there is some checks in the future, add code here
+         */
     }
 }

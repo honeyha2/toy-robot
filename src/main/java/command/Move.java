@@ -22,11 +22,6 @@ public class Move implements ICommand {
     }
 
     @Override
-    public boolean checkFormat() {
-        return true;
-    }
-
-    @Override
     public boolean isOnTableIfExecuted() {
         // deep copy
         Robot substituteRobot = RobotHelper.getANewRobotByDeepCopy(robot);

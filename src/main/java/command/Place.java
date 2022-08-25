@@ -1,7 +1,5 @@
 package command;
 
-import java.util.Objects;
-
 import lombok.AllArgsConstructor;
 import model.Direction;
 import model.Point;
@@ -24,19 +22,6 @@ public class Place implements ICommand {
     @Override
     public void execute() {
         robot.place(targetPoint, targetDirection);
-    }
-
-    @Override
-    public boolean checkFormat() {
-        if (Objects.isNull(targetPoint)) {
-            return false;
-        }
-
-        if (Objects.isNull(targetDirection)) {
-            return false;
-        }
-
-        return true;
     }
 
     @Override

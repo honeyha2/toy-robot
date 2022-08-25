@@ -11,8 +11,8 @@ public interface ICommand {
     // execute command
     void execute();
 
-    // check command format
-    boolean checkFormat();
+    // check command
+    // boolean check();
 
     // calculate whether robot is on the table if this command is executed.
     boolean isOnTableIfExecuted();
