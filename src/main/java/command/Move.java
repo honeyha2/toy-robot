@@ -1,5 +1,7 @@
 package command;
 
+import java.util.Objects;
+
 import lombok.AllArgsConstructor;
 import model.Robot;
 import model.Table;
@@ -29,4 +31,12 @@ public class Move implements ICommand {
         return TableHelper.isRobotOnTable(substituteRobot, table);
     }
 
+    /**
+     * for unit test
+     */
+    @Override
+    public boolean equals(Object obj) {
+        Move target = (Move) obj;
+        return Objects.equals(this.robot, target.robot) && Objects.equals(this.table, target.table);
+    }
 }

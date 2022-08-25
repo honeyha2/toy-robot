@@ -1,5 +1,7 @@
 package model;
 
+import java.util.Objects;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -72,5 +74,11 @@ public class Robot {
 
     public void report() {
         System.out.println(point + "," + direction);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        Robot target = (Robot) obj;
+        return Objects.equals(this.point, target.point) && Objects.equals(target.direction, this.direction);
     }
 }

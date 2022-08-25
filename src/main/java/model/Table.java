@@ -1,5 +1,7 @@
 package model;
 
+import java.util.Objects;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
@@ -15,4 +17,13 @@ public class Table {
     Point sorthEastEnd;
     Point northWestEnd;
     Point sorthWestEnd;
+
+    @Override
+    public boolean equals(Object obj) {
+        Table target = (Table) obj;
+        return Objects.equals(northEastEnd, target.getNorthEastEnd()) && Objects
+                .equals(sorthEastEnd, target.getSorthEastEnd()) && Objects
+                .equals(northWestEnd, target.getNorthWestEnd()) && Objects
+                .equals(sorthWestEnd, target.getSorthWestEnd());
+    }
 }

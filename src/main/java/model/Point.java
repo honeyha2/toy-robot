@@ -20,4 +20,10 @@ public class Point {
     public String toString() {
         return x + "," + y;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        Point target = (Point) obj;
+        return this.x == target.getX() && y == target.y;
+    }
 }
