@@ -41,7 +41,6 @@ public class Place implements ICommand {
 
     @Override
     public boolean isOnTableIfExecuted() {
-        // create a new substitute robot to act. deep copy
         Robot substituteRobot = RobotHelper.getANewRobotByDeepCopy(robot);
         substituteRobot.place(targetPoint, targetDirection);
         return TableHelper.isRobotOnTable(substituteRobot, table);

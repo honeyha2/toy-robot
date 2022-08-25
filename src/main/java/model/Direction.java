@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * represent direction that toy robot is facing.
+ *
  * @author lianchang <lianchang@kuaishou.com>
  * Created on 2022-08-24
  */
@@ -22,15 +24,21 @@ public enum Direction {
         clockwiseDirections.add(WEST);
     }
 
+    /**
+     * next direction by clockwise seq
+     */
     public static Direction findNext(Direction direction) {
         int currentIndex = clockwiseDirections.indexOf(direction);
         int nextIndex = (currentIndex + 1) % clockwiseDirections.size();
         return clockwiseDirections.get(nextIndex);
     }
 
+    /**
+     * last direction by clockwise seq
+     */
     public static Direction findLast(Direction direction) {
         int currentIndex = clockwiseDirections.indexOf(direction);
-        int lastIndex = (currentIndex - 1) % clockwiseDirections.size();
+        int lastIndex = (currentIndex + clockwiseDirections.size() - 1) % clockwiseDirections.size();
         return clockwiseDirections.get(lastIndex);
     }
 

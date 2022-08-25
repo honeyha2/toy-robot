@@ -10,6 +10,7 @@ import lombok.Data;
 @Data
 @AllArgsConstructor
 public class Table {
+    // four end points of the table.
     Point northEastEnd;
     Point sorthEastEnd;
     Point northWestEnd;

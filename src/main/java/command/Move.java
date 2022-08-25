@@ -28,7 +28,7 @@ public class Move implements ICommand {
 
     @Override
     public boolean isOnTableIfExecuted() {
-        // create a new substitute robot to act. deep copy
+        // deep copy
         Robot substituteRobot = RobotHelper.getANewRobotByDeepCopy(robot);
         substituteRobot.move();
         return TableHelper.isRobotOnTable(substituteRobot, table);

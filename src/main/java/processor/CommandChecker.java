@@ -1,13 +1,14 @@
-package process;
+package processor;
 
 import java.util.List;
 
 import command.ICommand;
 import command.Place;
 import lombok.Data;
-import model.Robot;
 
 /**
+ * check constraints
+ *
  * @author lianchang <lianchang@kuaishou.com>
  * Created on 2022-08-24
  */
@@ -15,14 +16,16 @@ import model.Robot;
 public class CommandChecker implements IProcessor {
 
     private List<ICommand> commands;
-    private Robot robot;
+    // if check failed, there will be a error message.
     private String errmsg;
 
-    public CommandChecker(List<ICommand> commands, Robot robot) {
+    public CommandChecker(List<ICommand> commands) {
         this.commands = commands;
-        this.robot = robot;
     }
 
+    /**
+     * check constraints, such as command format, etc
+     */
     @Override
     public void process() {
         if (commands == null || commands.size() == 0) {
